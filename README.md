@@ -7,5 +7,6 @@ Heching, A., Hooker, J. N., & Kimura, R. (2019). A logic-based Benders approach 
 Grenouilleau, F., Lahrichi, N., & Rousseau, L. M. (2020). New decomposition methods for home care scheduling with predefined visits. Computers & Operations Research, 115, 104855.
 
 Solving the master problem for assignment of patients to nurses.
+Execute: solve.py in python3 console.
 
 ### Sub-problem is a part of my ongoing research and is private for now. I will make it public once my contribution is published.
