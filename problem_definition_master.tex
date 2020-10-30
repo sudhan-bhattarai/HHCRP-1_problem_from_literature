@@ -1,0 +1,45 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\title{\textbf{Problem definition: Master problem (\cite{heching2019logic})}}
+\author {Sudhan Bhattarai}
+\date{October, 2020}
+\geometry{a4paper, left = 1in, right=1in, left=1in, bottom = 1in}
+\renewcommand{\baselinestretch}{1.5}
+
+\usepackage[square,numbers]{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authoryear,open={(},close={)}}
+
+\begin{document}
+\maketitle
+\textbf{Notations:}\\
+m = nurse of nurses, nurse index, i = 1, 2, ...., m\\
+n = number of patients, patient index, j, l = 2, 2, ...., n, depot index = 0\\
+t = number of days in planning horizon, day index, k = 1, 2, ...., t\\
+$q_j$ = qualification of nurse demanded by patient j\\
+$Q_i$ = qualification of a nurse i\\
+$f_j$ = frequency of visit for a patient j during planning horizon\\
+\par
+\textbf{Decision variables:}\\
+\(\delta_j\) = 1 if patient j is accepted, 0 otherwise \\
+\(x_{ij}\) = 1 if patient j is assigned to nurse i, 0 otherwise  \\
+\(y_{ijk}\) = 1 if patient j is assigned to nurse i on day k, 0 otherwise \\
+
+\textbf{Objective:}\\
+\(max: \sum_{j=1}^n \delta_j\) \hfill (1) \\
+\clearpage
+
+\textbf{Constraints:}\\
+\(\sum_{i=1}^m x_{ij} = \delta_j\),\hspace{1cm} \forall j \hfill (2-I) \\
+\(\sum_{i,k} y_{ijk} = v_j  \delta_j\), \hspace{1cm} \forall j   \hfill (2-II)\\
+\(y_{ijk} \leq x_{ij} \) \hspace{1cm} \forall i,j,k \hfill (3)\\
+\(x_{ij} = 0\) \hspace{1cm} $\forall$ i,j with $q_j$ $\notin$ $Q_i$ \hfill (4)\\
+\(y_{i0k} = 1\) \hspace{1cm} \forall i,k \hfill (5)\\
+\(y_{ijk} + y_{ij,k+\tau} \leq 1\) \hspace{1cm} $\forall{i,j}$ with $v_j$ \in (2,3) \par
+\hspace{3.5cm} $\forall$ $\tau$, k with 1 $\leq$ $\tau$ $\leq$ 4-$v_j$, 1 $\leq$ k $\leq$ 5 \hfill (6) \\
+\par
+Equation (1) represent the objective function which is to maximize the total number of patients accepted in planning horizon. Constraint (2) makes sure that the accepted patients are assigned to the number of nurses required by the patients on every visits. Constraint (3) makes sure that the assigned patients can be scheduled for a day to the respective nurses. Qualification requirement is satisfied by constraint (4). Constraint (5) ensures that every nurses visit depot every days. Number of days between visit days for multiple visits in a week is satisfied by constraint (6).
+
+\bibliography{master_problem_reference}
+\end{document}
